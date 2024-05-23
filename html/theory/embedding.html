@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/theory_embedding.css">
+</head>
+<body>
+    <nav>
+        <ul class="header-nav">
+            <li><a href="../../index.html" class="logo"></a></li>
+            <li><a href="../profile.html">Профиль</a></li>
+            <li><a href="../theory.html">Теория</a></li>
+            <li><a href="../tasks.html">Задачи</a></li>
+            <li><a href="../crossword.html">Кроссворд</a></li>
+            <li><a href="../chat.html">Чат</a></li>
+            <li><a href="../about.html">О нас</a></li>
+            <!--li><a href="../login.html">Выйти</a></li>
+            <li><a href="../admin.html">Админ панель</a></li!-->
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="pages is-active">
+            <p class="cipher_desc">Стеганография - это наука о скрытии информации в различных носителях данных без привлечения внимания третьих лиц. Одним из ключевых аспектов стеганографии является техника встраивания, которая определяет способы внедрения скрытых сообщений в носитель.</p>
+            <p class="cipher_desc">Познакомимся с несколькими техниками встраивания:</p>
+            <div class="cipher_flex">
+                <div class="cipher_card">
+                    <p class="cipher_text">Метод LSB (Least Significant Bit):</p>
+                    <p class="cipher_text">Данный метод основан на изменении наименее значимого бита (LSB) пикселей изображения или звуковых сэмплов для встраивания скрытой информации.<br>Прост в реализации, но может быть уязвим к атакам, так как изменения LSB могут быть обнаружены статистическими методами.</p>
+                    <button class="watch_example">Смотреть пример</button>
+                </div>
+                <div class="cipher_card">
+                    <p class="cipher_text">Методы изменения частоты:</p>
+                    <p class="cipher_text">В данной технике скрытая информация встраивается путем изменения частотных характеристик носителя, таких как спектральные компоненты звукового сигнала или цветовые составляющие изображения.</p>
+                    <p class="cipher_text">Примеры включают методы изменения амплитуды, фазы или частоты сигнала для передачи скрытого сообщения.</p>
+                    <button class="watch_example">Смотреть пример</button>
+                </div>
+            </div>
+            <div class="modal_cipher hidden">
+                <img class="modal_img" src="../../img/theory/lsb.png">
+                <button class="modal_close"></button>
+            </div>
+            <div class="modal_cipher hidden">
+                <img class="modal_img" src="../../img/theory/chastota.png">
+                <button class="modal_close"></button>
+            </div>
+            
+        </div>
+        <div class="pages">
+            <p class="cipher_desc">Стеганография - это наука о скрытии информации в различных носителях данных без привлечения внимания третьих лиц. Одним из ключевых аспектов стеганографии является техника встраивания, которая определяет способы внедрения скрытых сообщений в носитель.</p>
+            <p class="cipher_desc">Познакомимся с несколькими техниками встраивания:</p>
+            <div class="cipher_flex">
+                <div class="cipher_card">
+                    <p class="cipher_text">Методы пространственного размещения:</p>
+                    <p class="cipher_text">Эти методы включают в себя размещение скрытой информации в различных областях носителя, таких как пиксели изображения или блоки звукового сигнала.</p>
+                    <p class="cipher_text">Примеры включают размещение битов скрытого сообщения в определенных областях изображения с использованием специальных алгоритмов.</p>
+                    <button class="watch_example">Смотреть пример</button>
+                </div>
+                <div class="cipher_card">
+                    <p class="cipher_text">Методы временного размещения:</p>
+                    <p class="cipher_text">В этой технике скрытая информация встраивается во временные параметры носителя, такие как временные интервалы между сэмплами аудио или видео сигнала.</p>
+                    <p class="cipher_text">Примеры включают изменение длительности или частоты кадров видео для передачи скрытого сообщения.</p>
+                    <button class="watch_example">Смотреть пример</button>
+                </div>
+            </div>
+            <div class="modal_cipher hidden">
+                <img class="modal_img" src="../../img/theory/prostranstv.png">
+                <button class="modal_close"></button>
+            </div>
+            <div class="modal_cipher hidden">
+                <img class="modal_img" src="../../img/theory/time.png">
+                <button class="modal_close"></button>
+            </div>
+        </div>
+        <div class="pages">
+            <div class="techn">
+                <div>
+                    <p class="techn_desc">Выбор оптимальной техники зависит:</p>
+                    <ul>
+                        <li>от характеристик носителя;</li>
+                        <li>требуемой стойкости скрытой информации;</li>
+                        <li>уровня защиты от обнаружения.</li>
+                    </ul>
+                </div>
+                <p class="techn_desc">Важно учитывать потенциальные уязвимости каждой техники и применять соответствующие меры для защиты от атак.</p>
+                <p>Техники встраивания играют ключевую роль в стеганографии, обеспечивая эффективное скрытие информации и защиту конфиденциальности данных. Понимание различных методов встраивания поможет разработчикам и исследователям создавать более надежные стеганографические системы и противостоять возможным угрозам безопасности.</p>
+                <img src="../../img/theory/techn.png">
+            </div>
+        </div>
+        <button class="main__btn_continue">Продолжить</button>
+    </div>
+    <script src="../../js/embedding.js"></script>
+</body>
+</html>
