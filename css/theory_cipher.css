@@ -195,10 +195,6 @@ section.is-active {
     line-height: 24px;
 }
 
-.hidden {
-    display: none;
-}
-
 .color_blue {
     background-color: #0070c0;
 }

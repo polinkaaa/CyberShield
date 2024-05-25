@@ -17,6 +17,10 @@ button {
 .container {
     padding: 0 20px;
 }
+
+.hidden {
+    display: none;
+}
 .header-nav {
     list-style-type: none;
     display: flex;
@@ -69,6 +73,7 @@ button {
     border: none;
     border-radius: 18px;
     margin-top: 37px;
+    cursor: default;
 }
 .form_login, .form_login_reg {
     width: 62%;
