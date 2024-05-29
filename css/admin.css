@@ -1,0 +1,21 @@
+.border {
+    border: 1px solid #000;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 15px;
+}
+.admin_input {
+    width: 100%;
+    border-radius: 10px;
+    height: 45px;
+    box-shadow: -2px 2px 2px #919090;
+}
+.title {
+    margin: 20px 0 10px;
+}
+.desc_input {
+    height: 150px;
+}
+.form_auth_button {
+    cursor: pointer;
+}

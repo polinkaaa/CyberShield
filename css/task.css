@@ -22,3 +22,7 @@ select {
     border-radius: 15px;
     background-color: #eeeeee;
 }
+
+.is-active {
+    background-color: #bbc1ff;;
+}
