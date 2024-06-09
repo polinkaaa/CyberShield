@@ -114,12 +114,12 @@ let task_steg = [
         help: "Воспользуйтесь сайтом https://stylesuxx.github.io/steganography/",
     },
 ]
-let bolt = 0;
+let bolt;
 if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     const crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
 
-    if (bolt != 0) {
+    if (bolt == 1) {
         tasks = JSON.parse(localStorage.getItem("myKey"));
     }
     
