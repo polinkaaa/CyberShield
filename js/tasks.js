@@ -117,7 +117,7 @@ let task_steg = [
         help: "Воспользуйтесь сайтом https://stylesuxx.github.io/steganography/",
     },
 ]
-if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
+if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     const crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
 
@@ -337,7 +337,7 @@ if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
         })
     })
 } 
-if (location.href=='http://127.0.0.1:5500/html/admin.html') {
+if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
     const title_task_element = document.querySelector('.admin_field_title'),
     description_task_element = document.querySelector('.admin_field_description'),
     help_task_element = document.querySelector('.admin_field_help'),
