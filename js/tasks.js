@@ -349,6 +349,7 @@ if (location.href=='http://127.0.0.1:5500/html/admin.html') {
     let title_task, description_task, help_task, answer_task, point_task, difficulty_task;
 
     form_auth_button.addEventListener('click', function() {
+        console.log('qwerty')
         title_task = title_task_element.value;
         description_task = description_task_element.value;
         help_task = help_task_element.value;
