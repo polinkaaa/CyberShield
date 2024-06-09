@@ -19,3 +19,11 @@
 .form_auth_button {
     cursor: pointer;
 }
+.flex_admin {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+.admin_field_difficulty{
+    padding: 5px 15px;
+}

@@ -17,22 +17,37 @@
             <li><a href="crossword.html">Кроссворд</a></li>
             <li><a href="chat.html">Чат</a></li>
             <li><a href="about.html">О нас</a></li>
-            <!--li><a href="login.html">Выйти</a></li!>
-            <li><a href="admin.html">Админ панель</a></li-->
+            <!--li><a href="login.html">Выйти</a></li!-->
+            <li><a href="admin.html">Админ панель</a></li>
         </ul>
     </nav>
     <div class="container">
         <div class="border">
             <p class="title">Заголовок</p>
-            <input type="text" class="admin_input" placeholder="Введите заголовок">
+            <input type="text" class="admin_input admin_field_title" placeholder="Введите заголовок">
             <p class="title">Описание</p>
-            <textarea  type="text" class="admin_input desc_input" placeholder="Введите описание"></textarea>
+            <textarea  type="text" class="admin_input desc_input admin_field_description" placeholder="Введите описание"></textarea>
             <p class="title">Решение</p>
-            <textarea  type="text" class="admin_input desc_input" placeholder="Введите решение"></textarea>
+            <textarea  type="text" class="admin_input desc_input admin_field_help" placeholder="Введите решение"></textarea>
             <p class="title">Ответ</p>
-            <input type="text" class="admin_input" placeholder="Введите ответ">
-            <button class="form_auth_button"><a href="tasks.html">Сохранить</a></button>
+            <input type="text" class="admin_input admin_field_answer" placeholder="Введите ответ">
+            
+            <div class="flex_admin">
+                <select class="admin_field_difficulty">
+                    <option value="">Сложность</option>
+                    <option value="Легко">Легко</option>
+                    <option value="Средне">Средне</option>
+                    <option value="Сложно">Сложно</option>
+                </select>
+                <div>
+                    <p class="title">Количество очков</p>
+                    <input type="number" class="admin_field_point" min="0" max="10" />
+                </div>
+                
+            </div>
+            <button class="form_auth_button">Сохранить</button>
         </div>
     </div>
+    <script src="../js/tasks.js"></script>
 </body>
 </html>
