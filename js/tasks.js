@@ -118,7 +118,7 @@ let bolt;
 if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     const crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
-
+    bolt = JSON.parse(localStorage.getItem("bolt"));
     if (bolt == 1) {
         tasks = JSON.parse(localStorage.getItem("myKey"));
     }
@@ -235,6 +235,7 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
 
     form_auth_button.addEventListener('click', function() {
         bolt = 1;
+        localStorage.setItem("bolt",JSON.stringify(bolt));
         title_task = title_task_element.value;
         description_task = description_task_element.value;
         help_task = help_task_element.value;
