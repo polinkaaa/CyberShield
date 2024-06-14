@@ -1,7 +1,7 @@
 button {
     cursor: pointer;
 }
-.answer_task {
+.answer_task, .answer_task_steg {
     margin-right: 15px;
 }
 .read_more_btn:hover {
@@ -32,4 +32,52 @@ select {
 }
 .stegano {
     display: none;
+}
+.task_flex {
+    display: flex;
+    justify-content: space-between;
+}
+.answer_btn_help, .answer_btn_help_steg {
+    border: 1px solid #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.answer_btn_help:hover, .answer_btn_help_steg:hover {
+    color: #FFA51E;
+    background-color: blue;
+}
+.answer_btn:hover, .answer_btn_steg:hover {
+    color: #FFA51E;
+}
+.modal, .modal_steg {
+    position:fixed;
+    background-color: #fffedf;
+    border: 1px solid #000;
+    right: 80px;
+    left: 80px;
+    top: 20%;
+    bottom: 20%;
+    padding: 20px;
+    border-radius: 18px;
+    outline: 9999px solid rgba(0, 0, 0, 0.5);
+}
+
+.btn_task_modal_close, .btn_task_modal_close_steg {
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    border: 1px solid #000;
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 12px;
+}
+.btn_task_modal_close:hover, .btn_task_modal_close_steg:hover {
+    color: #FFA51E;
+    background-color: blue;
+}
+img {
+    width: 100%;
 }

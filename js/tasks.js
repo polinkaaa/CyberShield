@@ -79,7 +79,8 @@ let task_steg = [
         image: "../img/tasks/image.png",
         point: 4,
         answer: "Встраивание",
-        help: "",
+        difficulty: 'Средне',
+        help: "1. Откройте стереограмму на вашем устройстве или распечатайте ее.<br>2. Расположите изображение на уровне глаз, сохраняя неподвижность.<br>3. Сфокусируйте взгляд на определенной точке вдали, глядя «сквозь изображение».<br>4. Медленно сближайте глаза, пока две половины изображения не сольются.<br>5. Когда изображение начнет становиться размытым, сконцентрируйтесь на получившемся объемном изображении.",
     },
     {
         title: "Стереограмма",
@@ -87,7 +88,8 @@ let task_steg = [
         image: "../img/tasks/image2.png",
         point: 4,
         answer: "Шифр",
-        help: "",
+        difficulty: 'Средне',
+        help: "1. Откройте стереограмму на вашем устройстве или распечатайте ее.<br>2. Расположите изображение на уровне глаз, сохраняя неподвижность.<br>3. Сфокусируйте взгляд на определенной точке вдали, глядя «сквозь изображение».<br>4. Медленно сближайте глаза, пока две половины изображения не сольются.<br>5. Когда изображение начнет становиться размытым, сконцентрируйтесь на получившемся объемном изображении.",
     },
     {
         title: "Стереограмма",
@@ -95,7 +97,8 @@ let task_steg = [
         image: "../img/tasks/image3.png",
         point: 4,
         answer: "Алгоритм",
-        help: "",
+        difficulty: 'Средне',
+        help: "1. Откройте стереограмму на вашем устройстве или распечатайте ее.<br>2. Расположите изображение на уровне глаз, сохраняя неподвижность.<br>3. Сфокусируйте взгляд на определенной точке вдали, глядя «сквозь изображение».<br>4. Медленно сближайте глаза, пока две половины изображения не сольются.<br>5. Когда изображение начнет становиться размытым, сконцентрируйтесь на получившемся объемном изображении.",
     },
     {
         title: "Стеганография",
@@ -103,6 +106,7 @@ let task_steg = [
         image: "../img/tasks/image4.png",
         point: 6,
         answer: "cryptogramma",
+        difficulty: 'Средне',
         help: "Воспользуйтесь сайтом https://stylesuxx.github.io/steganography/",
     },
     {
@@ -111,12 +115,13 @@ let task_steg = [
         image: "../img/tasks/image5.png",
         point: 6,
         answer: "message",
+        difficulty: 'Средне',
         help: "Воспользуйтесь сайтом https://stylesuxx.github.io/steganography/",
     },
 ]
 let bolt;
-if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
-    //if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
+//if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
+    if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
     const crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
     bolt = JSON.parse(localStorage.getItem("bolt"));
@@ -137,12 +142,20 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
         <div class="more_task hidden">
             <p class="task_text">${tasks[i].text_more}</p>
             <div class="task_flex">
-                <input type="text" class="answer_task"/>
-                <button class="answer_btn">Ответить</button>
+                <div class="task_flex">
+                    <input type="text" class="answer_task"/>
+                    <button class="answer_btn">Ответить</button>
+                </div>
+                <button class="answer_btn_help">Помощь</button>
             </div>
         </div>
         <button class="read_more_btn">Читать далее</button>
+        <div class="modal hidden">
+            <p>${tasks[i].help}</p>
+            <button class="btn_task_modal_close">Закрыть</button>
+        </div>
     </div>`;
+    
     }
     
     for (i=0; i<task_steg.length; i++) {
@@ -158,11 +171,18 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
         <div class="more_task hidden">
             <img class="task_img" src="${task_steg[i].image}"></img>
             <div class="task_flex">
-                <input type="text" class="answer_task_steg"/>
-                <button class="answer_btn_steg">Ответить</button>
+                <div class="task_flex">
+                    <input type="text" class="answer_task_steg"/>
+                    <button class="answer_btn_steg">Ответить</button>
+                </div>
+                <button class="answer_btn_help_steg">Помощь</button>
             </div>
         </div>
         <button class="read_more_btn">Читать далее</button>
+        <div class="modal_steg hidden">
+            <p>${task_steg[i].help}</p>
+            <button class="btn_task_modal_close_steg">Закрыть</button>
+        </div>
     </div>`;
     }
     
@@ -172,7 +192,13 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     answer_btn = document.querySelectorAll('.answer_btn'),
     answer_btn_steg = document.querySelectorAll('.answer_btn_steg'),
     answer_task = document.querySelectorAll('.answer_task'),
-    answer_task_steg = document.querySelectorAll('.answer_task_steg');
+    answer_task_steg = document.querySelectorAll('.answer_task_steg'),
+    answer_btn_help = document.querySelectorAll('.answer_btn_help'),
+    answer_btn_help_steg = document.querySelectorAll('.answer_btn_help_steg'),
+    btn_task_modal_close = document.querySelectorAll('.btn_task_modal_close'),
+    modal = document.querySelectorAll('.modal'),
+    modal_steg = document.querySelectorAll('.modal_steg'),
+    btn_task_modal_close_steg = document.querySelectorAll('.btn_task_modal_close_steg');
     
     read_more.forEach(function(item, i) {
         item.addEventListener('click', () => {
@@ -201,7 +227,33 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
             }
         })
     })
+
+    answer_btn_help.forEach(function(item, i) {
+        item.addEventListener('click', ()=>{
+            modal[i].classList.remove('hidden')
+            console.log(i)
+        })
+    })
+
+    answer_btn_help_steg.forEach(function(item, i) {
+        item.addEventListener('click', ()=>{
+            modal_steg[i].classList.remove('hidden')
+            console.log(i)
+        })
+    })/**/
     
+    btn_task_modal_close.forEach(function(item,i) {
+        item.addEventListener('click', ()=> {
+            modal[i].classList.add('hidden')
+        })
+    })
+
+    btn_task_modal_close_steg.forEach(function(item,i) {
+        item.addEventListener('click', ()=> {
+            modal_steg[i].classList.add('hidden')
+        })
+    })
+
     answer_btn_steg.forEach(function(item, i) {
         item.addEventListener('click', () => {
             if (answer_task_steg[i].value == task_steg[i].answer) {
@@ -230,8 +282,8 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     })
 } 
 
-if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
-   // if (location.href=='http://127.0.0.1:5500/html/admin.html') {
+//if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
+    if (location.href=='http://127.0.0.1:5500/html/admin.html') {
     const title_task_element = document.querySelector('.admin_field_title'),
     description_task_element = document.querySelector('.admin_field_description'),
     help_task_element = document.querySelector('.admin_field_help'),
@@ -271,8 +323,8 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
 let login = false;
 let name_user, email_user, password_user;
 
-if (location.href=='https://polinkaaa.github.io/CyberShield/html/registration.html') {
-//if (location.href=='http://127.0.0.1:5500/html/registration.html') {
+//if (location.href=='https://polinkaaa.github.io/CyberShield/html/registration.html') {
+if (location.href=='http://127.0.0.1:5500/html/registration.html') {
     const reg = document.querySelector('.form_auth_button_reg'),
     input = document.querySelectorAll('.form_login_reg');
     input.forEach((item)=>{
@@ -297,8 +349,8 @@ if (location.href=='https://polinkaaa.github.io/CyberShield/html/registration.ht
     })
 }
 
-if (location.href=='https://polinkaaa.github.io/CyberShield/html/profile.html') {
-//if (location.href=='http://127.0.0.1:5500/html/profile.html') {
+//if (location.href=='https://polinkaaa.github.io/CyberShield/html/profile.html') {
+if (location.href=='http://127.0.0.1:5500/html/profile.html') {
     name_user = JSON.parse(localStorage.getItem("name_user"));
     email_user = JSON.parse(localStorage.getItem("email_user"));
     const name_field = document.querySelector('.name_profile'),
