@@ -1,3 +1,5 @@
+let counter = 0;
+const counter_profile = document.querySelector('.counter');
 let tasks = [
     {
         title: "Новое задание",
@@ -119,44 +121,59 @@ let task_steg = [
         help: "Воспользуйтесь сайтом https://stylesuxx.github.io/steganography/",
     },
 ]
-let bolt;
+let bolt, gaika;
 //if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
-    const crypto = document.querySelector('.crypto'),
+    let crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
     bolt = JSON.parse(localStorage.getItem("bolt"));
     if (bolt == 1) {
         tasks = JSON.parse(localStorage.getItem("myKey"));
     }
-    
-    for (i=0; i<tasks.length; i++) {
-        crypto.innerHTML += `<div class="task_item">
-        <div class="flex_text_point">
-            <p class="task_themes">${tasks[i].title}</p>
-            <div class="flex_task">
-                <p class="task_themes">${tasks[i].point}🏆</p>
-                <p class="difficulty">${tasks[i].difficulty}</p>
-            </div>
-        </div>
-        <p class="task_text">${tasks[i].text}</p>
-        <div class="more_task hidden">
-            <p class="task_text">${tasks[i].text_more}</p>
-            <div class="task_flex">
-                <div class="task_flex">
-                    <input type="text" class="answer_task"/>
-                    <button class="answer_btn">Ответить</button>
+    //console.log(crypto)
+    //gaika = JSON.parse(localStorage.getItem("gaika"));
+    //if (gaika == 7) {
+    //    crypto.innerHTML += JSON.parse(localStorage.getItem("tasks"));
+    //} else {
+    function load_tasks() {
+        crypto.innerHTML = ""
+        for (i=0; i<tasks.length; i++) {
+            crypto.innerHTML += `<div class="task_item">
+            <div class="flex_text_point">
+                <p class="task_themes">${tasks[i].title}</p>
+                <div class="flex_task">
+                    <p class="task_themes">${tasks[i].point}🏆</p>
+                    <p class="difficulty">${tasks[i].difficulty}</p>
                 </div>
-                <button class="answer_btn_help">Помощь</button>
             </div>
-        </div>
-        <button class="read_more_btn">Читать далее</button>
-        <div class="modal hidden">
-            <p>${tasks[i].help}</p>
-            <button class="btn_task_modal_close">Закрыть</button>
-        </div>
-    </div>`;
-    
+            <p class="task_text">${tasks[i].text}</p>
+            <div class="more_task hidden">
+                <p class="task_text">${tasks[i].text_more}</p>
+                <div class="task_flex">
+                    <div class="task_flex">
+                        <input type="text" class="answer_task"/>
+                        <button class="answer_btn">Ответить</button>
+                    </div>
+                    <button class="answer_btn_help">Помощь</button>
+                </div>
+            </div>
+            <div class="task_flex">
+                <button class="read_more_btn">Читать далее</button>
+                <button class="done">Удалить</button>
+            </div>
+            
+            <div class="modal hidden">
+                <p>${tasks[i].help}</p>
+                <button class="btn_task_modal_close">Закрыть</button>
+            </div>
+        </div>`;
+        
+        }
     }
+    load_tasks()
+    //}
+    
+    
     
     for (i=0; i<task_steg.length; i++) {
         stegano.innerHTML += `<div class="task_item">
@@ -198,7 +215,16 @@ let bolt;
     btn_task_modal_close = document.querySelectorAll('.btn_task_modal_close'),
     modal = document.querySelectorAll('.modal'),
     modal_steg = document.querySelectorAll('.modal_steg'),
-    btn_task_modal_close_steg = document.querySelectorAll('.btn_task_modal_close_steg');
+    btn_task_modal_close_steg = document.querySelectorAll('.btn_task_modal_close_steg'),
+    done = document.querySelectorAll('.done');
+
+    done.forEach(function(item, i) {
+        item.addEventListener('click', () => {
+            tasks.splice(i,1);
+            load_tasks()
+            console.log(tasks)
+        })
+    })
     
     read_more.forEach(function(item, i) {
         item.addEventListener('click', () => {
@@ -221,7 +247,15 @@ let bolt;
     answer_btn.forEach(function(item, i) {
         item.addEventListener('click', () => {
             if (answer_task[i].value == tasks[i].answer) {
-                answer_task[i].style.borderColor = '#00FF00'
+                answer_task[i].style.borderColor = '#00FF00';
+                counter++;
+                localStorage.setItem("counter",JSON.stringify(counter));
+                done[i].classList.remove('hidden')
+                //let qwqwqw=crypto;
+                //localStorage.setItem("tasks",JSON.stringify(qwqwqw));
+                //console.log(crypto)
+                //gaika = 7
+                //localStorage.setItem("gaika",JSON.stringify(gaika));
             } else {
                 answer_task[i].style.borderColor = '#FF0000'
             }
@@ -231,14 +265,12 @@ let bolt;
     answer_btn_help.forEach(function(item, i) {
         item.addEventListener('click', ()=>{
             modal[i].classList.remove('hidden')
-            console.log(i)
         })
     })
 
     answer_btn_help_steg.forEach(function(item, i) {
         item.addEventListener('click', ()=>{
             modal_steg[i].classList.remove('hidden')
-            console.log(i)
         })
     })/**/
     
@@ -258,6 +290,8 @@ let bolt;
         item.addEventListener('click', () => {
             if (answer_task_steg[i].value == task_steg[i].answer) {
                 answer_task_steg[i].style.borderColor = '#00FF00'
+                counter++;
+                localStorage.setItem("counter",JSON.stringify(counter));
             } else {
                 answer_task_steg[i].style.borderColor = '#FF0000'
             }
@@ -345,7 +379,7 @@ if (location.href=='http://127.0.0.1:5500/html/registration.html') {
     reg.addEventListener('click', function() {
         localStorage.setItem("name_user",JSON.stringify(name_user));
         localStorage.setItem("email_user",JSON.stringify(email_user));
-                reg.href = '../html/profile.html'
+        reg.href = '../html/profile.html'
     })
 }
 
@@ -357,4 +391,6 @@ if (location.href=='http://127.0.0.1:5500/html/profile.html') {
     email_field = document.querySelector('.email_profile');
     name_field.innerHTML = name_user;
     email_field.innerHTML = email_user;
+    counter = JSON.parse(localStorage.getItem("counter"));
+    counter_profile.innerHTML = counter
 }

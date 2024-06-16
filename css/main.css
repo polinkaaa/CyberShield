@@ -19,7 +19,7 @@ button {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 .header-nav {
     list-style-type: none;

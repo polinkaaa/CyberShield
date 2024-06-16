@@ -1,0 +1,33 @@
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 37px;
+    margin-top: 15px;
+}
+
+span {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #93542a;
+    font-weight: 600;
+}
+.pop-up {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid blue;
+    border-radius: 15px;
+    width: 28%;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+ul li {
+    list-style-type: none;
+}
+li img {
+    width: 10px;
+    height: 13px;
+    margin-right: 5px;
+}
+.main__title {
+    margin: 20px 0;
+}

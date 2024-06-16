@@ -4,7 +4,7 @@ button {
 .answer_task, .answer_task_steg {
     margin-right: 15px;
 }
-.read_more_btn:hover {
+.read_more_btn:hover, .done:hover {
     color: #FFA51E;
 }
 select {
