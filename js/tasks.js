@@ -2,15 +2,6 @@ let counter = 0;
 const counter_profile = document.querySelector('.counter');
 let tasks = [
     {
-        title: "Новое задание",
-        text: "Описание задания",
-        point: 2,
-        text_more:"",
-        answer: "Ответ",
-        difficulty: 'Легко',
-        help: "Стоит лучше изучить тему Шифры",
-    },
-    {
         title: "Тест",
         text: "Поточный шифр - это <br>Выберите правильный вариант ответа (в ответе укажите номер верного ответа): <br>1. способ шифрования данных, при котором информация шифруется одним ключом, а расшифровывается другим. ",
         point: 2,
@@ -121,86 +112,83 @@ let task_steg = [
         help: "Воспользуйтесь сайтом https://stylesuxx.github.io/steganography/",
     },
 ]
-let bolt, gaika;
+let bolt, gaika, delbtn=0;
 //if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
     if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
     let crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
     bolt = JSON.parse(localStorage.getItem("bolt"));
-    if (bolt == 1) {
-        tasks = JSON.parse(localStorage.getItem("myKey"));
+    if (bolt == 3) {
+        tasks = JSON.parse(localStorage.getItem("myKey2"));
     }
-    //console.log(crypto)
-    //gaika = JSON.parse(localStorage.getItem("gaika"));
-    //if (gaika == 7) {
-    //    crypto.innerHTML += JSON.parse(localStorage.getItem("tasks"));
-    //} else {
     function load_tasks() {
         crypto.innerHTML = ""
-        for (i=0; i<tasks.length; i++) {
-            crypto.innerHTML += `<div class="task_item">
-            <div class="flex_text_point">
-                <p class="task_themes">${tasks[i].title}</p>
-                <div class="flex_task">
-                    <p class="task_themes">${tasks[i].point}🏆</p>
-                    <p class="difficulty">${tasks[i].difficulty}</p>
-                </div>
-            </div>
-            <p class="task_text">${tasks[i].text}</p>
-            <div class="more_task hidden">
-                <p class="task_text">${tasks[i].text_more}</p>
-                <div class="task_flex">
-                    <div class="task_flex">
-                        <input type="text" class="answer_task"/>
-                        <button class="answer_btn">Ответить</button>
+        if (bolt == 3) {
+            tasks = JSON.parse(localStorage.getItem("myKey2"));
+        }
+        console.log(tasks);
+        for (i=0; i<100; i++) {
+            if (tasks[i] != undefined) {
+                crypto.innerHTML += `<div class="task_item">
+                    <div class="flex_text_point">
+                        <p class="task_themes">${tasks[i].title}</p>
+                        <div class="flex_task">
+                            <p class="task_themes">${tasks[i].point}🏆</p>
+                            <p class="difficulty">${tasks[i].difficulty}</p>
+                        </div>
                     </div>
-                    <button class="answer_btn_help">Помощь</button>
-                </div>
-            </div>
-            <div class="task_flex">
-                <button class="read_more_btn">Читать далее</button>
-                <button class="done">Удалить</button>
-            </div>
-            
-            <div class="modal hidden">
-                <p>${tasks[i].help}</p>
-                <button class="btn_task_modal_close">Закрыть</button>
-            </div>
-        </div>`;
-        
+                    <p class="task_text">${tasks[i].text}</p>
+                    <div class="more_task hidden">
+                        <p class="task_text">${tasks[i].text_more}</p>
+                        <div class="task_flex">
+                            <div class="task_flex">
+                                <input type="text" class="answer_task"/>
+                                <button class="answer_btn">Ответить</button>
+                            </div>
+                            <button class="answer_btn_help">Помощь</button>
+                        </div>
+                    </div>
+                    <div class="task_flex">
+                        <button class="read_more_btn">Читать далее</button>
+                        <button class="done">Удалить</button>
+                    </div>
+                    
+                    <div class="modal hidden">
+                        <p>${tasks[i].help}</p>
+                        <button class="btn_task_modal_close">Закрыть</button>
+                    </div>
+                </div>`;
+            }
         }
     }
     load_tasks()
-    //}
-    
-    
     
     for (i=0; i<task_steg.length; i++) {
         stegano.innerHTML += `<div class="task_item">
-        <div class="flex_text_point">
-            <p class="task_themes">${task_steg[i].title}</p>
-            <div class="flex_task">
-                <p class="task_themes">${task_steg[i].point}🏆</p>
-                <p class="difficulty">${task_steg[i].difficulty}</p>
-            </div>
-        </div>
-        <p class="task_text">${task_steg[i].desc}</p>
-        <div class="more_task hidden">
-            <img class="task_img" src="${task_steg[i].image}"></img>
-            <div class="task_flex">
-                <div class="task_flex">
-                    <input type="text" class="answer_task_steg"/>
-                    <button class="answer_btn_steg">Ответить</button>
+            <div class="flex_text_point">
+                <p class="task_themes">${task_steg[i].title}</p>
+                <div class="flex_task">
+                    <p class="task_themes">${task_steg[i].point}🏆</p>
+                    <p class="difficulty">${task_steg[i].difficulty}</p>
                 </div>
-                <button class="answer_btn_help_steg">Помощь</button>
             </div>
-        </div>
-        <button class="read_more_btn">Читать далее</button>
-        <div class="modal_steg hidden">
-            <p>${task_steg[i].help}</p>
-            <button class="btn_task_modal_close_steg">Закрыть</button>
-        </div>
-    </div>`;
+            <p class="task_text">${task_steg[i].desc}</p>
+            <div class="more_task hidden">
+                <img class="task_img" src="${task_steg[i].image}"></img>
+                <div class="task_flex">
+                    <div class="task_flex">
+                        <input type="text" class="answer_task_steg"/>
+                        <button class="answer_btn_steg">Ответить</button>
+                    </div>
+                    <button class="answer_btn_help_steg">Помощь</button>
+                </div>
+            </div>
+            <button class="read_more_btn">Читать далее</button>
+            <div class="modal_steg hidden">
+                <p>${task_steg[i].help}</p>
+                <button class="btn_task_modal_close_steg">Закрыть</button>
+            </div>
+        </div>`;
     }
     
     
@@ -215,17 +203,21 @@ let bolt, gaika;
     btn_task_modal_close = document.querySelectorAll('.btn_task_modal_close'),
     modal = document.querySelectorAll('.modal'),
     modal_steg = document.querySelectorAll('.modal_steg'),
-    btn_task_modal_close_steg = document.querySelectorAll('.btn_task_modal_close_steg'),
-    done = document.querySelectorAll('.done');
+    btn_task_modal_close_steg = document.querySelectorAll('.btn_task_modal_close_steg');
+    let done = document.querySelectorAll('.done');
 
-    done.forEach(function(item, i) {
+    done.forEach(function(item, key) {
         item.addEventListener('click', () => {
-            tasks.splice(i,1);
+            tasks.splice(key, 1)
+            bolt=3
+            localStorage.setItem("myKey2",JSON.stringify(tasks));
             load_tasks()
-            console.log(tasks)
+            
+             //   }                
+                //console.log(done)
+           //})
         })
     })
-    
     read_more.forEach(function(item, i) {
         item.addEventListener('click', () => {
             moreText(i);
@@ -345,10 +337,10 @@ let bolt, gaika;
                 difficulty: difficulty_task,
                 help: help_task,
             }
-            bolt = 1;
+            bolt = 3;
             localStorage.setItem("bolt",JSON.stringify(bolt));
             tasks.unshift(new_task)
-            localStorage.setItem("myKey",JSON.stringify(tasks));
+            localStorage.setItem("myKey2",JSON.stringify(tasks));
         }
         
     })
