@@ -113,8 +113,8 @@ let task_steg = [
     },
 ]
 let bolt, gaika, delbtn=0;
-//if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
-    if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
+if (location.href=='https://polinkaaa.github.io/CyberShield/html/tasks.html'){
+   // if (location.href=='http://127.0.0.1:5500/html/tasks.html'){
     let crypto = document.querySelector('.crypto'),
     stegano = document.querySelector('.stegano');
     bolt = JSON.parse(localStorage.getItem("bolt"));
@@ -308,8 +308,8 @@ let bolt, gaika, delbtn=0;
     })
 } 
 
-//if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
-    if (location.href=='http://127.0.0.1:5500/html/admin.html') {
+if (location.href=='https://polinkaaa.github.io/CyberShield/html/admin.html') {
+    //if (location.href=='http://127.0.0.1:5500/html/admin.html') {
     const title_task_element = document.querySelector('.admin_field_title'),
     description_task_element = document.querySelector('.admin_field_description'),
     help_task_element = document.querySelector('.admin_field_help'),
@@ -349,8 +349,8 @@ let bolt, gaika, delbtn=0;
 let login = false;
 let name_user, email_user, password_user;
 
-//if (location.href=='https://polinkaaa.github.io/CyberShield/html/registration.html') {
-if (location.href=='http://127.0.0.1:5500/html/registration.html') {
+if (location.href=='https://polinkaaa.github.io/CyberShield/html/registration.html') {
+//if (location.href=='http://127.0.0.1:5500/html/registration.html') {
     const reg = document.querySelector('.form_auth_button_reg'),
     input = document.querySelectorAll('.form_login_reg');
     input.forEach((item)=>{
@@ -375,8 +375,8 @@ if (location.href=='http://127.0.0.1:5500/html/registration.html') {
     })
 }
 
-//if (location.href=='https://polinkaaa.github.io/CyberShield/html/profile.html') {
-if (location.href=='http://127.0.0.1:5500/html/profile.html') {
+if (location.href=='https://polinkaaa.github.io/CyberShield/html/profile.html') {
+//if (location.href=='http://127.0.0.1:5500/html/profile.html') {
     name_user = JSON.parse(localStorage.getItem("name_user"));
     email_user = JSON.parse(localStorage.getItem("email_user"));
     const name_field = document.querySelector('.name_profile'),
